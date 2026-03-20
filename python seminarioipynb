@@ -1,0 +1,919 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMGwW98sZpcgxCc5afisU8G",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/so4vier/ANALISI-SU-DISORDINI-E-CONFLITTI-IN-EUROPA/blob/main/python%20seminarioipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 109,
+      "metadata": {
+        "id": "ckHH0P5Ss5Xq"
+      },
+      "outputs": [],
+      "source": [
+        "class Cat():\n",
+        " def __init__(self):\n",
+        "  self.name = \"Piero\"\n",
+        "  self.age = 8\n",
+        "\n",
+        " def say_name(self):\n",
+        "  print(f\"My name is {self.name}\")\n",
+        "\n",
+        " def say_age(self):\n",
+        "  print(f\"I'm {self.age} years old\")\n",
+        "\n",
+        "#questo è il primo esempio di classe, tra parentesi devo sempre mettere self come\n",
+        "#argomento che è un argomento fantasma, infatti, quando faccio print, non lo metto tra le parentesi\n",
+        "\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura1 = Cat()"
+      ],
+      "metadata": {
+        "id": "JX-EvSoWtzk7"
+      },
+      "execution_count": 110,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura1.name"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "F8DyHeHnuLjQ",
+        "outputId": "60f07828-e3b3-43be-d900-55b69b0ccb85"
+      },
+      "execution_count": 111,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Piero'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 111
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura1.age"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "amHRlsylutMm",
+        "outputId": "52a9606c-3d65-4e8e-ae2a-90aac895c9a9"
+      },
+      "execution_count": 73,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 73
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura1.say_name()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RiUlosPGuwCH",
+        "outputId": "b845f821-92cd-4e7d-c10a-92fe3a91136a"
+      },
+      "execution_count": 112,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "My name is Piero\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura1.say_age()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9VrNVsC9wBXi",
+        "outputId": "31012502-b3f2-4cd2-a1e6-f1b7e7f82a3e"
+      },
+      "execution_count": 113,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "I'm 8 years old\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "more complex class"
+      ],
+      "metadata": {
+        "id": "FZiFvUW9xM-Q"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Cat():\n",
+        " def __init__(self, assigned_name, assigned_age):\n",
+        "  self.name = assigned_name\n",
+        "  self.age = assigned_age\n",
+        "\n",
+        " def say_name(self):\n",
+        "  print(f\"My name is {self.name}\")\n",
+        "\n",
+        " def say_age(self):\n",
+        "  print(f\"I'm {self.age} years old\")\n",
+        "\n",
+        "#adesso voglio far ripetere il nome alla creatura 3 più volte\n",
+        " def say_name_many_times(self, rep):\n",
+        "  for i in range(rep):\n",
+        "   print(f\"My name is {self.name}\")\n",
+        "\n",
+        " def say_name_many_times_2(self, rep):\n",
+        "  for i in range(rep):\n",
+        "   self.say_name()\n",
+        "   self.say_age()"
+      ],
+      "metadata": {
+        "id": "gPJAcZrtxJ_2"
+      },
+      "execution_count": 114,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura2 = Cat(\"Gino\", 12)\n",
+        "creatura3 = Cat(\"Angelica\", 3)"
+      ],
+      "metadata": {
+        "id": "pjclLmGhxmO4"
+      },
+      "execution_count": 77,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura3.name"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "SFe7SRquyB4f",
+        "outputId": "5a9751a5-e9b3-4766-d2d3-339eeb4789b0"
+      },
+      "execution_count": 115,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Angelica'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 115
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura2.say_name()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vbkwIdwIyKGf",
+        "outputId": "1b578a3f-e4fa-48fa-8ddd-fe0bbbd7a57c"
+      },
+      "execution_count": 116,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "My name is Silvio\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura3.say_age()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Qo0IVvRqyQx0",
+        "outputId": "6755f4f6-36d7-46e7-976b-dc5fee0b02da"
+      },
+      "execution_count": 117,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "I'm 3 years old\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura3.say_name_many_times(5)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XLqyJaVczS-Q",
+        "outputId": "dbada23f-cdee-4efd-fd1b-78438d319aca"
+      },
+      "execution_count": 118,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "My name is Angelica\n",
+            "My name is Angelica\n",
+            "My name is Angelica\n",
+            "My name is Angelica\n",
+            "My name is Angelica\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#versione 2\n",
+        "creatura3.say_name_many_times_2 (3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J3cv1nmzz7r-",
+        "outputId": "38ed1825-a4f7-4831-8745-2c8ba19a4c55"
+      },
+      "execution_count": 119,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "My name is Angelica\n",
+            "I'm 3 years old\n",
+            "My name is Angelica\n",
+            "I'm 3 years old\n",
+            "My name is Angelica\n",
+            "I'm 3 years old\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura2.name"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "-hCpsSbe5zmx",
+        "outputId": "6e349abe-2d3c-433e-e620-11452f71ee92"
+      },
+      "execution_count": 120,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Silvio'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 120
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura2.name = \"Silvio\""
+      ],
+      "metadata": {
+        "id": "MxAlafoB6h_B"
+      },
+      "execution_count": 121,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura2.name\n",
+        "#modifica del nome da gino a silvio, tuttavia\n",
+        "#non si fa, si evita per evitare errori\n",
+        "#che possano cambiare attriburi a noi utili"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "nJOg79Db6m8q",
+        "outputId": "c225327b-1893-4516-9733-4c11f3db8dc1"
+      },
+      "execution_count": 122,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Silvio'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 122
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Cat():\n",
+        " def __init__(self, assigned_name, assigned_age):\n",
+        "  self.name = assigned_name\n",
+        "  self.age = assigned_age\n",
+        "\n",
+        " def say_name(self):\n",
+        "  print(f\"My name is {self.name}\")\n",
+        "\n",
+        "#meglio fare cosi\n",
+        " def change_name(self, new_name):\n",
+        "  self.name = new_name\n",
+        "\n",
+        " def say_age(self):\n",
+        "  print(f\"I'm {self.age} years old\")\n",
+        "\n",
+        "#adesso voglio far ripetere il nome alla creatura 3 più volte\n",
+        " def say_name_many_times(self, rep):\n",
+        "  for i in range(rep):\n",
+        "   print(f\"My name is {self.name}\")\n",
+        "\n",
+        " def say_name_many_times_2(self, rep):\n",
+        "  for i in range(rep):\n",
+        "   self.say_name()\n",
+        "   self.say_age()"
+      ],
+      "metadata": {
+        "id": "RApoIhEL66wa"
+      },
+      "execution_count": 123,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura4 = Cat(\"Spillo\", 2)"
+      ],
+      "metadata": {
+        "id": "b9EIVgaS7a1u"
+      },
+      "execution_count": 124,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(creatura4.name)\n",
+        "creatura4.change_name (\"Rocco\")\n",
+        "print(creatura4.name)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uUG2Jjzg7g8p",
+        "outputId": "a18c883d-39ff-4534-cb7e-53818d7dced7"
+      },
+      "execution_count": 125,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Spillo\n",
+            "Rocco\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "if creatura4.name == \"Rocco\":\n",
+        "  print(\"che bel nome\")\n",
+        "else:\n",
+        "  print(\"cambia nome\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "T5MlvNVH70bS",
+        "outputId": "aaa8a3ae-13f1-44d3-d8e3-1ab668d16556"
+      },
+      "execution_count": 126,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "che bel nome\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura4.name == \"spillo\""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LsoCDodr8NyK",
+        "outputId": "12529542-d69f-42df-f6db-2d49350c30f5"
+      },
+      "execution_count": 127,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "False"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 127
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "creatura4.name == \"Rocco\""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3SmT2yok8Uqv",
+        "outputId": "74794a0b-674a-4a70-a0c3-060a975c8c80"
+      },
+      "execution_count": 128,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 128
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "0a6fc83c"
+      },
+      "source": [
+        "class Cat():\n",
+        " def __init__(self, assigned_name, assigned_age):\n",
+        "  self.name = assigned_name\n",
+        "  self.age = assigned_age\n",
+        "\n",
+        " def say_name(self):\n",
+        "  print(f\"My name is {self.name}\")\n",
+        "\n",
+        "#meglio fare cosi\n",
+        " def change_name(self, new_name):\n",
+        "  self.name = new_name\n",
+        "\n",
+        " def birthday(self):\n",
+        "  self.age +=1\n",
+        "\n",
+        " def say_age(self):\n",
+        "  print(f\"I'm {self.age} years old\")\n",
+        "\n",
+        "#adesso voglio far ripetere il nome alla creatura 3 più volte\n",
+        " def say_name_many_times(self, rep):\n",
+        "  for i in range(rep):\n",
+        "   print(f\"My name is {self.name}\")\n",
+        "\n",
+        " def say_name_many_times_2(self, rep):\n",
+        "  for i in range(rep):\n",
+        "   self.say_name()\n",
+        "   self.say_age()"
+      ],
+      "execution_count": 135,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "fe331ca4"
+      },
+      "source": [
+        "creatura4 = Cat(\"Spillo\", 2)"
+      ],
+      "execution_count": 137,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "46c57275",
+        "outputId": "c8cc2b66-39d7-4546-e72f-8e410722ec97"
+      },
+      "source": [
+        "creatura4.birthday()\n",
+        "creatura4.age"
+      ],
+      "execution_count": 138,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "3"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 138
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Esercizio"
+      ],
+      "metadata": {
+        "id": "47wgTgeJ-XbW"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Correntista():\n",
+        "  def __init__ (self, nome, cognome, saldo_disp, saldo_inv):\n",
+        "    self.nome = nome\n",
+        "    self.cognome = cognome\n",
+        "    self.saldo_disp = saldo_disp\n",
+        "    self.saldo_inv = saldo_inv\n",
+        "\n",
+        "  def preleva(self, prelievo):\n",
+        "    self.saldo_disp -= prelievo\n",
+        "    print(f'il nuovo saldo disponibile è {self.saldo_disp}')\n",
+        "\n",
+        "  def investi(self, investimento):\n",
+        "    if investimento <= self.saldo_disp:\n",
+        "      self.saldo_inv += investimento\n",
+        "      self.saldo_disp -= investimento\n",
+        "      print(f'Investimento di {investimento} effettuato. Nuovo saldo disponibile: {self.saldo_disp}, saldo investito: {self.saldo_inv}')\n",
+        "    else:\n",
+        "      print('Non hai abbastanza credito per effettuare questo investimento.')"
+      ],
+      "metadata": {
+        "id": "crH5isi--XMd"
+      },
+      "execution_count": 196,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "Ijj8cO-a7n7e"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr1 = Correntista('Marco', 'Del coco', 500, 300)"
+      ],
+      "metadata": {
+        "id": "n7q1RHtE--91"
+      },
+      "execution_count": 197,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr1.nome"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "-4qGvnGu_e2H",
+        "outputId": "54d1bdfc-a4f3-411d-8c28-f89d5244bd1a"
+      },
+      "execution_count": 198,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Marco'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 198
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr1.saldo_disp"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pn7RPCiV-Wp8",
+        "outputId": "0b00aedd-0b18-473c-eed5-bef9c75f1dbf"
+      },
+      "execution_count": 199,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "500"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 199
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr1.preleva(100)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GVNwIoHf-WlN",
+        "outputId": "2aa52901-cd69-4c3c-e5f1-1772d6f8554c"
+      },
+      "execution_count": 200,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "il nuovo saldo disponibile è 400\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr1.investi(2000)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "i1saxDm1CZrq",
+        "outputId": "e4c6c833-a7a8-4fcf-f5c6-cdd0181fdf75"
+      },
+      "execution_count": 201,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Non hai abbastanza credito per effettuare questo investimento.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr1.investi(200)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ttE_FUYrFNzj",
+        "outputId": "f59d1192-c1eb-4a56-8c6f-e3efb0991c36"
+      },
+      "execution_count": 202,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Investimento di 200 effettuato. Nuovo saldo disponibile: 200, saldo investito: 500\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Ereditarietà"
+      ],
+      "metadata": {
+        "id": "RTTzz9RtJVf0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class CorrentistaCrypto(Correntista):\n",
+        " def investi_in_crypto(self,valore):\n",
+        "  self.saldo_disp = self.saldo_disp - valore\n",
+        "  print(f'hai investito {valore} in criptovalute')"
+      ],
+      "metadata": {
+        "id": "U4Oa4jzeJW2f"
+      },
+      "execution_count": 206,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr3 = CorrentistaCrypto ('m','c',45, 67)"
+      ],
+      "metadata": {
+        "id": "djCA6DQzKFvt"
+      },
+      "execution_count": 208,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr3.investi_in_crypto(3)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hc90xuUbJ52Z",
+        "outputId": "4c9ba404-ac0e-4f8b-8e5f-b9505e6ba61b"
+      },
+      "execution_count": 209,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "hai investito 3 in criptovalute\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "corr3.saldo_disp"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HxDGxEHGKRLd",
+        "outputId": "68580140-39d9-4059-e8c6-6ca7e763a4a4"
+      },
+      "execution_count": 210,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "42"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 210
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "wivRDaEvJRte"
+      }
+    }
+  ]
+}
